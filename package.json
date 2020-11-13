@@ -7,8 +7,17 @@
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {},
-  "dependencies": {},
+  "scripts": {
+    "seed": "node seed.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "faker": "^5.1.0",
+    "mysql": "^2.18.1",
+    "react": "^17.0.1",
+    "react-dev": "0.0.1",
+    "sequelize": "^6.3.5"
+  },
   "devDependencies": {
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
   }
