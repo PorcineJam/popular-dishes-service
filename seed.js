@@ -1,5 +1,22 @@
+/////////////////////////////////////////////////////////
+
 const Api = require('./db/api');
 const faker = require('faker');
+
+/////////////////////////////////////////////////////////
+
+const start = async (table, data) => {
+  try {
+    const result = await Api.insert(table, data);
+    console.log(result);
+    Api.db.end();
+  } catch (err) {
+    console.log(err);
+    Api.db.end();
+  }
+}
+
+/////////////////////////////////////////////////////////
 
 const dataRest = {
   name: 'burrito place'
@@ -9,9 +26,9 @@ const randomDataRest = {
   name: faker.lorem.word()
 };
 
-/*Api.insert('restaurants', randomDataRest, result => {
-  console.log(result);
-});*/
+start('restaurants', dataRest);
+
+/////////////////////////////////////////////////////////
 
 const dataItem = {
   name: 'burrito',
@@ -25,9 +42,9 @@ const randomDataItem = {
   restaurant_id: Math.floor(Math.random() * 2 + 6)
 };
 
-// Api.insert('items', randomDataItem, result => {
-//   console.log(result);
-// });
+start('items', dataItem);
+
+/////////////////////////////////////////////////////////
 
 var currentDate = new Date().toJSON().slice(0, 10);
 
@@ -53,6 +70,6 @@ const randomDataReviews = {
   item_id: 3
 };
 
-Api.insert('reviews', dataReviews, result => {
-  console.log(result);
-});
+start('reviews', dataReviews);
+
+/////////////////////////////////////////////////////////
