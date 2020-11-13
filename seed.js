@@ -9,10 +9,8 @@ const start = async (table, data) => {
   try {
     const result = await Api.insert(table, data);
     console.log(result);
-    Api.db.end();
   } catch (err) {
     console.log(err);
-    Api.db.end();
   }
 }
 
@@ -71,5 +69,9 @@ const randomDataReviews = {
 };
 
 start('reviews', dataReviews);
+
+/////////////////////////////////////////////////////////
+
+Api.db.end();
 
 /////////////////////////////////////////////////////////
